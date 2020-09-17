@@ -26,6 +26,10 @@ router.delete ('/:username',userController.deleteUserByUsername);
  * DELETE Route to delete all users
  */
 router.delete ('/',userController.deleteAllUsers);
+/**
+ * GET allUsersByCreatedDate
+ */
+router.get ('/findDate/:creation_date', userController.findAllUsersByCreatedDate);
 
 
 /**
