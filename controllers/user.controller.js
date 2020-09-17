@@ -108,7 +108,7 @@ async function updateUser (req, res){
                          
                                        
                     //Send response
-                    res.send('user update with username: ');
+                    res.send('user update with username: ' + req.body.username);
             
                 } catch (e) {
                     // Print error on console
@@ -158,11 +158,29 @@ async function deleteUserByUsername (req, res){
  * @param {*} req 
  * @param {*} res 
  */
-function deleteAllUsers (req, res){
+async function deleteAllUsers (req, res){
                 /**
                  * TASK:
                  * IMPLEMENT THE FUNCTION______________________- 
                  */
+                try {
+                    //Execute query
+                    const user = await dbManager.User.destroy({
+                        where: {}
+                    });                    
+                    //Send response
+                    res.send('user dates eliminated');
+            
+                } catch (e) {
+                    // Print error on console
+                    console.log(e);
+                    // Send error message as a response 
+                    res.status(500).send({
+                        message: "Some error occurred"
+                    });
+                }
+
+
 }
 
 /**
