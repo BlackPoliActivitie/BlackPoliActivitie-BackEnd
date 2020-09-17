@@ -94,6 +94,30 @@ async function updateUser (req, res){
                  * TASK:
                  * IMPLEMENT THE FUNCTION______________________- 
                  */
+                try {
+                    const { idUser } = req.params;
+                    //Execute query
+                    const user = await dbManager.User.update(
+                        {username: req.body.username} ,{
+                        where: {
+                            idUser: idUser,
+                         
+                        }
+                    });    
+                    
+                         
+                                       
+                    //Send response
+                    res.send('user update with username: ');
+            
+                } catch (e) {
+                    // Print error on console
+                    console.log(e);
+                    // Send error message as a response 
+                    res.status(500).send({
+                        message: "Some error occurred"
+                    });
+                }
 }
 
 /**
