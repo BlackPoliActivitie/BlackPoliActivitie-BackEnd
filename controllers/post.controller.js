@@ -95,7 +95,7 @@ async function findAllPostsByPublishedDate (req, res){
     try {
        
        const { published_date } = req.params;
-       console.log(req.params);
+       
        //Execute query
         const posts = await dbManager.Post.findAll ({
             where: {
@@ -149,11 +149,39 @@ async function deleteAllPosts (req, res){
 
 }
 
+async function deletePostByUserid (req, res){ 
+    /**
+     * TASK:
+     * IMPLEMENT THE FUNCTION______________________- 
+     */
 
+    try {
+        const { idUser } = req.params;
+        //Execute query
+        const post = await dbManager.Post.destroy({
+            where: {
+                idUser: idUser
+            }
+        });                    
+        //Send response
+        res.send('post delete with id user: ' + idUser);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+
+}
 
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
 exports.findAllPostsByUser = findAllPostsByUser;
 exports.findAllPostsByPublishedDate = findAllPostsByPublishedDate;
 exports.deleteAllPosts = deleteAllPosts;
+exports.deletePostByUserid = deletePostByUserid;
+
 

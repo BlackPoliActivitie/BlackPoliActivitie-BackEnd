@@ -31,6 +31,11 @@ router.get ('/findDate/:published_date', postController.findAllPostsByPublishedD
  */
 router.delete ('/',postController.deleteAllPosts);
 
+/**
+ * DELETE Route to delete posts by user id
+ */
+router.delete ('/',postController.deletePostByUserid);
+
 
 
 module.exports = router;
