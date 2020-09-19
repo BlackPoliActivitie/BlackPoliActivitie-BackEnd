@@ -87,7 +87,38 @@ async function findOnePost (req, res){
     }
 }
 
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+async function deleteAllPosts (req, res){
+    /**
+     * TASK:
+     * IMPLEMENT THE FUNCTION______________________- 
+     */
+    try {
+        //Execute query
+        const post = await dbManager.Post.destroy({
+            where: {}
+        });                    
+        //Send response
+        res.send('posts eliminated');
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+
+
+}
+
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
 exports.findOnePost = findOnePost;
+exports.deleteAllPosts = deleteAllPosts;
 

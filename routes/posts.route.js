@@ -21,6 +21,11 @@ router.get('/', postController.findAllPosts);
  */
 router.get('/:idUser', postController.findOnePost);
 
+/**
+ * DELETE Route to delete all posts
+ */
+router.delete ('/',postController.deleteAllPosts);
+
 
 
 module.exports = router;
