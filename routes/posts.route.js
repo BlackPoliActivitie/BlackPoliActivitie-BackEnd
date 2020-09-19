@@ -34,7 +34,12 @@ router.delete ('/',postController.deleteAllPosts);
 /**
  * DELETE Route to delete posts by user id
  */
-router.delete ('/',postController.deletePostByUserid);
+router.delete ('/:idUser',postController.deletePostByUserid);
+
+/**
+ * DELETE Route to delete posts by published date
+ */
+router.delete ('/:published_date',postController.deletePostByPublishedDate);
 
 
 
