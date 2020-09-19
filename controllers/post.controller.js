@@ -22,7 +22,8 @@ const dbManager = require('../database.config/database.manager');
      //CREATING THE OBJECT TO PERSIST 
      const newPostObject={
          message: req.body.message,
-         published_date: req.body.published_date
+         published_date: req.body.published_date,
+         idUser: req.body.idUser
      }
 
      //

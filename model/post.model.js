@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) =>{
         idPost: {
             type: Sequelize.INTEGER,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true 
         },
         message: Sequelize.STRING,
         published_date: Sequelize.DATE,
