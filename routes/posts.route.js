@@ -27,6 +27,11 @@ router.get('/:idUser', postController.findAllPostsByUser);
 router.get ('/findDate/:published_date', postController.findAllPostsByPublishedDate);
 
 /**
+ * GET Route to find post by id
+ */
+router.get('/:idPost', postController.findPostById);
+
+/**
  * DELETE Route to delete all posts
  */
 router.delete ('/',postController.deleteAllPosts);

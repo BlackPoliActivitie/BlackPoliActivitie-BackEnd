@@ -119,6 +119,29 @@ async function findAllPostsByPublishedDate (req, res){
 
 }
 
+async function findPostById (req, res){
+    try {
+        const { idPost } = req.params;
+
+        //Execute query
+        const post = await dbManager.Post.findOne({
+            where: {
+                idPost: idPost
+            }
+        });
+        //Send response
+        res.json(post);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+}
+
 /**
  * 
  * @param {*} req 
@@ -237,6 +260,7 @@ exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
 exports.findAllPostsByUser = findAllPostsByUser;
 exports.findAllPostsByPublishedDate = findAllPostsByPublishedDate;
+exports.findPostById = findPostById;
 exports.deleteAllPosts = deleteAllPosts;
 exports.deletePostByUserid = deletePostByUserid;
 exports.deletePostByPublishedDate = deletePostByPublishedDate;
