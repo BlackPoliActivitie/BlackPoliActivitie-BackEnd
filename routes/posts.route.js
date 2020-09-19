@@ -51,6 +51,11 @@ router.delete ('/:published_date',postController.deletePostByPublishedDate);
  */
 router.delete ('/:idPost',postController.deletePostByPostid);
 
+/**
+ * PUT Route to update a post by id
+ */
+router.put ('/:idPost',postController.updatePost);
+
 
 module.exports = router;
   
