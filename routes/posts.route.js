@@ -19,7 +19,7 @@ router.get('/', postController.findAllPosts);
 /**
  * GET Route to find post by user id
  */
-router.get('/:idUser', postController.findOnePost);
+router.get('/:idUser', postController.findAllPostsByUser);
 
 /**
  * DELETE Route to delete all posts

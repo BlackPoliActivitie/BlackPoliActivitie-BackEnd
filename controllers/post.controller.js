@@ -64,12 +64,12 @@ async function findAllPosts (req, res){
 /**
  * Get post by user id
  */
-async function findOnePost (req, res){
+async function findAllPostsByUser (req, res){
     try {
         const { idUser } = req.params;
 
         //Execute query
-        const post = await dbManager.Post.findOne({
+        const post = await dbManager.Post.findAll({
             where: {
                 idUser: idUser
             }
@@ -119,6 +119,6 @@ async function deleteAllPosts (req, res){
 
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
-exports.findOnePost = findOnePost;
+exports.findAllPostsByUser = findAllPostsByUser;
 exports.deleteAllPosts = deleteAllPosts;
 
