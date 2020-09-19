@@ -41,5 +41,26 @@ const dbManager = require('../database.config/database.manager');
      );
 }
 
+async function findAllPosts (req, res){
+    try {
+        //Execute query
+        const posts = await dbManager.Post.findAll ();
+        
+        //Send response
+        res.json({
+                data: posts
+        });
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+}
+
 exports.createPost = createPost;
+exports.findAllPosts = findAllPosts;
 

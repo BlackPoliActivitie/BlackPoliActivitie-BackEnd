@@ -11,6 +11,11 @@ const postController = require('../controllers/post.controller')
  */
 router.post ('/', postController.createPost);
 
+/**
+ * GET Route to list all users
+ */
+router.get('/', postController.findAllPosts);
+
 
 module.exports = router;
   
