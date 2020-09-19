@@ -205,6 +205,34 @@ async function deletePostByPublishedDate (req, res){
 
 }
 
+async function deletePostByPostid (req, res){ 
+    /**
+     * TASK:
+     * IMPLEMENT THE FUNCTION______________________- 
+     */
+
+    try {
+        const { idPost } = req.params;
+        //Execute query
+        const post = await dbManager.Post.destroy({
+            where: {
+                idPost: idPost
+            }
+        });                    
+        //Send response
+        res.send('post delete with id: ' + idPost);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+
+}
+
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
 exports.findAllPostsByUser = findAllPostsByUser;
@@ -212,5 +240,7 @@ exports.findAllPostsByPublishedDate = findAllPostsByPublishedDate;
 exports.deleteAllPosts = deleteAllPosts;
 exports.deletePostByUserid = deletePostByUserid;
 exports.deletePostByPublishedDate = deletePostByPublishedDate;
+exports.deletePostByPostid = deletePostByPostid;
+
 
 

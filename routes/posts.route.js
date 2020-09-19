@@ -41,6 +41,10 @@ router.delete ('/:idUser',postController.deletePostByUserid);
  */
 router.delete ('/:published_date',postController.deletePostByPublishedDate);
 
+/**
+ * DELETE Route to delete posts by post id
+ */
+router.delete ('/:idPost',postController.deletePostByPostid);
 
 
 module.exports = router;
