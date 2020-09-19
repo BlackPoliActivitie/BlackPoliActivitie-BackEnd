@@ -61,6 +61,33 @@ async function findAllPosts (req, res){
     }
 }
 
+/**
+ * Get post by user id
+ */
+async function findOnePost (req, res){
+    try {
+        const { idUser } = req.params;
+
+        //Execute query
+        const post = await dbManager.Post.findOne({
+            where: {
+                idUser: idUser
+            }
+        });
+        //Send response
+        res.json(post);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+}
+
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
+exports.findOnePost = findOnePost;
 

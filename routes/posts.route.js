@@ -16,6 +16,12 @@ router.post ('/', postController.createPost);
  */
 router.get('/', postController.findAllPosts);
 
+/**
+ * GET Route to find post by user id
+ */
+router.get('/:idUser', postController.findOnePost);
+
+
 
 module.exports = router;
   
