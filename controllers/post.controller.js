@@ -287,6 +287,30 @@ async function updatePost (req, res){
     }
 }
 
+async function findPostByUsername (req, res){
+    try {
+        const { username } = req.params;
+
+        //Execute query
+        const post = await dbManager.Post.findOne({
+            where: {
+                username: username
+            }
+        });
+        //Send response
+        res.json(post);
+
+    } catch (e) {
+        // Print error on console
+        console.log(e);
+        // Send error message as a response 
+        res.status(500).send({
+            message: "Some error occurred"
+        });
+    }
+}
+
+exports.findPostByUsername = findPostByUsername;
 exports.createPost = createPost;
 exports.findAllPosts = findAllPosts;
 exports.findAllPostsByUser = findAllPostsByUser;

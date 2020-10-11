@@ -56,6 +56,8 @@ router.delete ('/:idPost',postController.deletePostByPostid);
  */
 router.put ('/:idPost',postController.updatePost);
 
+router.get('/:username',postController.findPostByUsername);
+
 
 module.exports = router;
   
