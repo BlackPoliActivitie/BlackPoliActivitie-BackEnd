@@ -12,6 +12,7 @@ var postsRouter = require('./routes/posts.route');
 
 // IMPORT DB CONNECTION MANAGER
 const dbManager = require ("./database.config/database.manager");
+const cors = require ('cors')
 
 var app = express();
 
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/post', postsRouter);
-
+app.use(cors());
 
 /**
  * Testing the connection to the database and recreate the models if the tables doesn´t exists  
