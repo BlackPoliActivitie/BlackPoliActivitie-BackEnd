@@ -29,7 +29,7 @@ router.get ('/findDate/:published_date', postController.findAllPostsByPublishedD
 /**
  * GET Route to find post by id
  */
-router.get('delete/:idPost', postController.findPostById);
+router.get('/:idPost', postController.findPostById);
 
 /**
  * DELETE Route to delete all posts
@@ -44,7 +44,7 @@ router.delete ('/',postController.deleteAllPosts);
 /**
  * DELETE Route to delete posts by published date
  */
-router.delete ('/:published_date',postController.deletePostByPublishedDate);
+//router.delete ('/:published_date',postController.deletePostByPublishedDate);
 
 /**
  * DELETE Route to delete posts by post id
